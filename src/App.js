@@ -3,6 +3,8 @@ import './App.css';
 
 import {DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+import { Order } from './components/Order';
+
 const initialFood = 
 [
 	{ "nombre": "Papas Con Sal", "estatus": "activo", "fecha_registro": "9/8/2021 18:06:31", "id": "6ee8ef8002e706ede576bdb260bf1398", "precio": 0, "id_comercio": "1203e71e56a059c24f1a6692f3d42c7c", "fecha_registro_timestamp": 1628550391,        "orden": 6	},
@@ -24,21 +26,7 @@ const reorder = (list, startIndex, endIndex) => {
 function App() {
   const [foods, setFood] = useState(initialFood)
 
-  const orderByOrden = () => {
-    
-  const orderFood = initialFood.sort(function (a, b) {
-      if (a.orden > b.orden) {
-        return 1;
-      }
-      if (a.orden < b.orden) {
-        return -1;
-      }
-      
-      return 0;
-    })
-   
-    setFood(orderFood)
-  }
+ 
 
   return (
     <DragDropContext 
@@ -77,9 +65,7 @@ function App() {
      )}
      </Droppable>
     </div>
-    <div>
-      <button className='button-19'  onClick={orderByOrden}>Ordenar</button>
-      </div>
+<Order setFood={setFood}/>
     </DragDropContext>
   );
 }
