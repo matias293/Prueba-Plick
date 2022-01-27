@@ -78,8 +78,8 @@ function App() {
      </Droppable>
     </div>
     <div>
-      <button onClick={orderByOrden}>Order</button>
-    </div>
+      <button className='button-19'  onClick={orderByOrden}>Ordenar</button>
+      </div>
     </DragDropContext>
   );
 }
